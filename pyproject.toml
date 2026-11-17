@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "confbci"
+version = "0.0.1"
+description = "Conformal prediction for motor-imagery brain-computer interfaces: prediction sets with coverage guarantees for stroke-rehab decoders."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+authors = [{ name = "Varun Bajpai" }]
+keywords = ["BCI", "EEG", "motor imagery", "conformal prediction", "Riemannian geometry", "uncertainty quantification"]
+dependencies = [
+    "numpy",
+    "scipy",
+    "torch",
+    "pyriemann>=0.6",
+    "moabb",
+    "braindecode",
+    "scikit-learn",
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+include = ["confbci*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = [
+    "ignore::DeprecationWarning:pyriemann.*",
+]
